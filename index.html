@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ballista.trading — Coming Soon</title>
+    <style>
+        /* RESET & FULL SCREEN */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FFF8E7; /* yellowish-white background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* GOLD BALLISTA PLACEHOLDER — replace with your AI image */
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            max-width: 160px; /* smaller ballista as you asked */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.2));
+        }
+
+        /* COUNTDOWN */
+        .countdown {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #D4AF37; /* gold */
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+
+        /* X (TWITTER) BUTTON */
+        .x-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 999px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .x-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            background: #1a1a1a;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .x-button svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .countdown {
+                font-size: 2.5rem;
+            }
+            .logo-container img {
+                max-width: 120px;
+            }
+            .x-button {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- YOUR LOGO GOES HERE -->
+        <div class="logo-container">
+            <!-- Replace 'your-ballista-logo.png' with your actual image file -->
+            <img src="your-ballista-logo.png" alt="ballista.trading logo" />
+        </div>
+
+        <!-- COUNTDOWN -->
+        <div class="countdown" id="timer">00:00:00:00</div>
+        <div class="countdown-label">Days Hours Minutes Seconds</div>
+
+        <!-- X (TWITTER) BUTTON -->
+        <!-- Replace 'YOUR_X_HANDLE' with your actual X username (without @) -->
+        <a href="https://x.com/YOUR_X_HANDLE" target="_blank" class="x-button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            Follow on X
+        </a>
+
+    </div>
+
+    <script>
+        // COUNTDOWN TO SEPTEMBER 16, 2026 (Midnight)
+        const targetDate = new Date("September 16, 2026 00:00:00").getTime();
+
+        const timerElement = document.getElementById('timer');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                timerElement.textContent = "00:00:00:00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            timerElement.textContent = 
+                `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
