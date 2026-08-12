@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ballista.trading — Coming Soon</title>
+
+    <!-- FAVICON TAGS ADDED HERE -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <style>
         /* RESET & FULL SCREEN */
         * {
@@ -48,16 +55,8 @@
             font-weight: 700;
             color: #D4AF37; /* gold */
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-variant-numeric: tabular-nums;
-        }
-
-        .countdown-label {
-            font-size: 1rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
         }
 
         /* X (TWITTER) BUTTON */
@@ -116,9 +115,8 @@
             <img src="your-ballista-logo.png" alt="ballista.trading logo" />
         </div>
 
-        <!-- COUNTDOWN -->
+        <!-- COUNTDOWN (No label below it) -->
         <div class="countdown" id="timer">00:00:00:00</div>
-        <div class="countdown-label">Days Hours Minutes Seconds</div>
 
         <!-- X (TWITTER) BUTTON -->
         <!-- Replace 'YOUR_X_HANDLE' with your actual X username (without @) -->
@@ -132,8 +130,8 @@
     </div>
 
     <script>
-        // COUNTDOWN TO SEPTEMBER 16, 2026 (Midnight)
-        const targetDate = new Date("September 16, 2026 00:00:00").getTime();
+        // COUNTDOWN TO SEPTEMBER 16, 2026 AT 11:00 PM (23:00)
+        const targetDate = new Date("September 16, 2026 23:00:00").getTime();
 
         const timerElement = document.getElementById('timer');
 
