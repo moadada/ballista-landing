@@ -3,202 +3,1175 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- GOOGLE SEARCH CONSOLE VERIFICATION (Kept from earlier) -->
+
+    <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
     <meta name="google-site-verification" content="HVHUslal_Sfo1ZOukJbaS-7P19C-uI_cqni4ooF5GME" />
 
-    <!-- SEO TITLE (Primary search term) -->
-    <title>Ballista Trading — Arc-Native Crypto Trading & Token Launchpad</title>
-    
-    <!-- SEO DESCRIPTION (Appears in Google snippets) -->
-    <meta name="description" content="Ballista is an Arc-native crypto trading and token launch platform. Discover emerging tokens, trade markets, and launch tokens on Arc using USDC." />
-
-    <!-- CANONICAL TAG (Tells Google this is the master URL) -->
+    <!-- SEO -->
+    <title>Ballista — Arc Token Launchpad & Attention Market</title>
+    <meta
+        name="description"
+        content="Ballista is an Arc-native token launchpad and attention market. Launch tokens, capture attention, trade emerging markets, and graduate successful launches into Uniswap v4 liquidity."
+    />
     <link rel="canonical" href="https://ballista.trading/" />
 
-    <!-- OPEN GRAPH (For Discord/X Link Previews) -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ballista.trading/" />
-    <meta property="og:title" content="Ballista Trading — Arc-Native Crypto Trading" />
-    <meta property="og:description" content="Discover tokens, trade markets, and launch on Arc." />
+    <meta property="og:title" content="Ballista — Arc Token Launchpad" />
+    <meta
+        property="og:description"
+        content="The attention market for token launches on Arc."
+    />
     <meta property="og:image" content="https://ballista.trading/ballista-logo.png" />
-    <meta property="og:site_name" content="Ballista Trading" />
 
-    <!-- X (TWITTER) CARDS -->
+    <!-- X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ballista Trading — Arc-Native Crypto Trading" />
-    <meta name="twitter:description" content="Discover tokens, trade markets, and launch on Arc." />
-    <meta name="twitter:image" content="https://ballista.trading/ballista-logo.png" />
+    <meta name="twitter:title" content="Ballista — Arc Token Launchpad" />
+    <meta
+        name="twitter:description"
+        content="The attention market for token launches on Arc."
+    />
+    <meta
+        name="twitter:image"
+        content="https://ballista.trading/ballista-logo.png"
+    />
 
-    <!-- FAVICON -->
+    <!-- FAVICONS -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- THEME COLOR -->
-    <meta name="theme-color" content="#FFF8E7">
-
-    <!-- STRUCTURED DATA: ORGANIZATION -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Ballista Trading",
-      "url": "https://ballista.trading/",
-      "logo": "https://ballista.trading/ballista-logo.png",
-      "description": "Arc-native crypto trading and token launch platform.",
-      "sameAs": [
-        "https://x.com/YOUR_X_HANDLE"
-      ]
-    }
-    </script>
-
-    <!-- STRUCTURED DATA: WEBSITE -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Ballista Trading",
-      "alternateName": "Ballista",
-      "url": "https://ballista.trading/"
-    }
-    </script>
+    <meta name="theme-color" content="#f5f5f2" />
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #f3f3f0;
+            --text: #111111;
+            --muted: #777777;
+            --line: #d6d6d1;
+            --soft: #e9e9e5;
+            --accent: #111111;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FFF8E7;
-            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --------------------------------------------------
+           GLOBAL
+        -------------------------------------------------- */
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mono {
+            font-family: "DM Mono", monospace;
+        }
+
+        .page {
+            width: 100%;
+        }
+
+        .inner {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* --------------------------------------------------
+           NAV
+        -------------------------------------------------- */
+
+        nav {
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 0;
+            background: rgba(243, 243, 240, 0.86);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            border-color: var(--line);
+        }
+
+        .nav-inner {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #1a1a1a;
-            text-align: center;
-            padding: 20px;
+            justify-content: space-between;
         }
-        .container { max-width: 600px; width: 100%; }
-        
-        .logo-container { margin-bottom: 20px; }
-        .logo-container img {
-            max-width: 160px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.2));
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand img {
+            width: 25px;
+            height: 25px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #555;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        /* --------------------------------------------------
+           HERO
+        -------------------------------------------------- */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 45px;
+        }
+
+        .hero-location {
+            text-align: right;
+        }
+
+        .hero-title {
+            font-size: clamp(72px, 13vw, 190px);
+            line-height: 0.78;
+            letter-spacing: -0.075em;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-left: -9px;
+        }
+
+        .hero-statement {
+            max-width: 650px;
+            margin-top: 55px;
+            font-size: clamp(24px, 3.2vw, 43px);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+            font-weight: 500;
+        }
+
+        .hero-statement span {
+            color: #888;
+        }
+
+        .hero-bottom {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: end;
+        }
+
+        .hero-copy {
+            max-width: 440px;
+            font-size: 14px;
+            line-height: 1.65;
+            color: #555;
+        }
+
+        .enter {
+            justify-self: end;
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            border: 1px solid #111;
+            padding: 15px 20px;
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .enter:hover {
+            background: #111;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .arrow {
+            font-size: 16px;
+        }
+
+        /* --------------------------------------------------
+           COUNTDOWN
+        -------------------------------------------------- */
+
+        .countdown-section {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 25px 0;
+        }
+
+        .countdown-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .countdown {
-            font-size: 3.5rem;
+            font-family: "DM Mono", monospace;
+            font-size: clamp(25px, 4vw, 48px);
+            font-weight: 300;
+            letter-spacing: -0.05em;
+        }
+
+        .countdown-label {
+            text-align: right;
+        }
+
+        /* --------------------------------------------------
+           SECTIONS
+        -------------------------------------------------- */
+
+        .section {
+            padding: 150px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 50px;
+        }
+
+        .section-number {
+            font-family: "DM Mono", monospace;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .section-content {
+            max-width: 820px;
+        }
+
+        .section-title {
+            font-size: clamp(48px, 7vw, 94px);
+            line-height: 0.92;
+            letter-spacing: -0.065em;
             font-weight: 700;
-            color: #D4AF37;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-variant-numeric: tabular-nums;
+            text-transform: uppercase;
         }
 
-        /* NEW SEMANTIC TEXT LAYER (H1 is crucial for Google) */
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-        }
-        .subtitle {
-            font-size: 1rem;
+        .section-description {
+            max-width: 580px;
+            margin-top: 42px;
+            font-size: 18px;
+            line-height: 1.55;
             color: #555;
-            line-height: 1.5;
-            margin-bottom: 25px;
         }
 
-        .x-button {
-            display: inline-flex;
+        /* --------------------------------------------------
+           MECHANISM
+        -------------------------------------------------- */
+
+        .mechanism {
+            margin-top: 90px;
+            border-top: 1px solid var(--line);
+        }
+
+        .mechanism-row {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 14px 32px;
-            background: #000000;
-            color: #ffffff;
-            border: none;
-            border-radius: 999px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            gap: 30px;
+            min-height: 92px;
+            border-bottom: 1px solid var(--line);
         }
-        .x-button:hover {
-            transform: translateY(-2px) scale(1.02);
-            background: #1a1a1a;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-        .x-button svg { width: 24px; height: 24px; fill: currentColor; }
 
-        @media (max-width: 480px) {
-            .countdown { font-size: 2.5rem; }
-            .logo-container img { max-width: 120px; }
-            .x-button { padding: 12px 24px; font-size: 1rem; }
+        .mechanism-number {
+            font-family: "DM Mono", monospace;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .mechanism-name {
+            font-size: 25px;
+            letter-spacing: -0.035em;
+            font-weight: 600;
+        }
+
+        .mechanism-detail {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* --------------------------------------------------
+           ATTENTION MARKET VISUAL
+        -------------------------------------------------- */
+
+        .market {
+            margin-top: 80px;
+            border: 1px solid var(--line);
+            background: #ededE9;
+        }
+
+        .market-header {
+            padding: 15px 18px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .market-item {
+            display: grid;
+            grid-template-columns: 50px 1fr 120px 120px;
+            gap: 20px;
+            align-items: center;
+            min-height: 70px;
+            padding: 0 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .market-item:last-child {
+            border-bottom: 0;
+        }
+
+        .rank {
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+            color: #888;
+        }
+
+        .token {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .attention-bar {
+            height: 3px;
+            width: 100%;
+            background: #d2d2ce;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .attention-bar span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #111;
+        }
+
+        .market-status {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            color: #666;
+            text-align: right;
+        }
+
+        /* --------------------------------------------------
+           GRADUATION
+        -------------------------------------------------- */
+
+        .graduation {
+            margin-top: 90px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+        .grad-step {
+            min-height: 180px;
+            padding: 20px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .grad-number {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .grad-name {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        /* --------------------------------------------------
+           FUTURE
+        -------------------------------------------------- */
+
+        .future {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .future-title {
+            max-width: 1000px;
+            font-size: clamp(55px, 9vw, 125px);
+            line-height: 0.86;
+            letter-spacing: -0.075em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .future-description {
+            max-width: 500px;
+            margin-top: 50px;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* --------------------------------------------------
+           FOOTER
+        -------------------------------------------------- */
+
+        footer {
+            padding: 35px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* --------------------------------------------------
+           REVEAL ANIMATION
+        -------------------------------------------------- */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --------------------------------------------------
+           MOBILE
+        -------------------------------------------------- */
+
+        @media (max-width: 700px) {
+
+            .inner {
+                width: min(100% - 32px, 1180px);
+            }
+
+            nav {
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a:nth-child(2) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 105px;
+                min-height: auto;
+                padding-bottom: 80px;
+            }
+
+            .hero-top {
+                margin-bottom: 35px;
+            }
+
+            .hero-location {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: clamp(65px, 22vw, 125px);
+                margin-left: -4px;
+            }
+
+            .hero-statement {
+                margin-top: 40px;
+                font-size: 28px;
+            }
+
+            .hero-bottom {
+                margin-top: 55px;
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .enter {
+                justify-self: start;
+            }
+
+            .countdown-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .countdown-label {
+                text-align: left;
+            }
+
+            .section {
+                padding: 95px 0;
+            }
+
+            .section-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .section-title {
+                font-size: 52px;
+            }
+
+            .section-description {
+                margin-top: 30px;
+                font-size: 16px;
+            }
+
+            .mechanism {
+                margin-top: 55px;
+            }
+
+            .mechanism-row {
+                grid-template-columns: 45px 1fr;
+                gap: 15px;
+                min-height: 80px;
+            }
+
+            .mechanism-detail {
+                grid-column: 2;
+                margin-top: -25px;
+            }
+
+            .market {
+                margin-top: 55px;
+            }
+
+            .market-item {
+                grid-template-columns: 35px 1fr;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .attention-bar {
+                grid-column: 2;
+            }
+
+            .market-status {
+                display: none;
+            }
+
+            .graduation {
+                grid-template-columns: 1fr 1fr;
+                margin-top: 55px;
+            }
+
+            .grad-step {
+                min-height: 140px;
+            }
+
+            .future {
+                min-height: 70vh;
+            }
+
+            .future-title {
+                font-size: 58px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
+<div class="page">
 
-        <!-- YOUR GOLD BALLISTA LOGO -->
-        <div class="logo-container">
-            <img src="ballista-logo.png" alt="Ballista Trading logo" />
+    <!-- NAV -->
+    <nav id="nav">
+        <div class="inner nav-inner">
+
+            <a href="#" class="brand">
+                <img src="/ballista-logo.png" alt="Ballista">
+                BALLISTA
+            </a>
+
+            <div class="nav-links">
+                <a href="#launch">Launch</a>
+                <a href="#market">Attention</a>
+                <a href="#graduate">Graduate</a>
+                <a href="https://x.com/YOUR_X_HANDLE" target="_blank" rel="noopener">
+                    X ↗
+                </a>
+            </div>
+
         </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+            <div class="inner hero-content">
+
+                <div class="hero-top">
+                    <div class="eyebrow">
+                        ARC / 001
+                    </div>
+
+                    <div class="eyebrow hero-location">
+                        ARC MAINNET<br>
+                        COMING SOON
+                    </div>
+                </div>
+
+                <h1 class="hero-title">
+                    BALLISTA
+                </h1>
+
+                <div class="hero-statement reveal">
+                    THE ATTENTION MARKET
+                    <span>FOR ARC.</span>
+                </div>
+
+                <div class="hero-bottom reveal">
+
+                    <p class="hero-copy">
+                        Launch tokens on Arc. Capture attention.
+                        Trade the market. Successful launches
+                        graduate into Uniswap v4 liquidity.
+                    </p>
+
+                    <a href="#launch" class="enter">
+                        Enter Ballista
+                        <span class="arrow">→</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
 
         <!-- COUNTDOWN -->
-        <div class="countdown" id="timer">00:00:00:00</div>
+        <section class="countdown-section">
+            <div class="inner countdown-row">
 
-        <!-- NEW SEMANTIC TEXT LAYER (Visible to Google, beautiful to users) -->
-        <h1>Ballista Trading</h1>
-        <p class="subtitle">
-            Arc-native crypto trading and token launch platform.<br />
-            Discover tokens, trade markets, and launch on Arc.
-        </p>
+                <div class="eyebrow">
+                    MAINNET LAUNCH
+                </div>
 
-        <!-- X (TWITTER) BUTTON -->
-        <a href="https://x.com/YOUR_X_HANDLE" target="_blank" class="x-button">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-            Follow on X
-        </a>
+                <div class="countdown" id="timer">
+                    00:00:00:00
+                </div>
 
-        <!-- INVISIBLE SEO TEXT LAYER (Adds entity context for 'Attention Market' & 'Arc') -->
-        <div style="margin-top: 30px; font-size: 0.8rem; color: #aaa; max-width: 450px; margin-left: auto; margin-right: auto; line-height: 1.4; opacity: 0.6;">
-            <p>Ballista Trading builds the next-generation attention market for Arc blockchain. Combining a trading terminal, token launchpad, and Arc-native infrastructure, it provides early access to emerging crypto projects in the 2026 ecosystem.</p>
+                <div class="eyebrow countdown-label">
+                    16 / 09 / 2026<br>
+                    23:00
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 01 LAUNCH -->
+        <section class="section" id="launch">
+
+            <div class="inner section-grid">
+
+                <div class="section-number">
+                    01
+                </div>
+
+                <div class="section-content reveal">
+
+                    <div class="eyebrow">
+                        THE LAUNCHPAD
+                    </div>
+
+                    <h2 class="section-title">
+                        Launch.
+                    </h2>
+
+                    <p class="section-description">
+                        Create a token on Arc with a simple launch
+                        mechanism designed to turn attention into
+                        an open market.
+                    </p>
+
+                    <div class="mechanism">
+
+                        <div class="mechanism-row">
+                            <span class="mechanism-number">01</span>
+                            <span class="mechanism-name">Create</span>
+                            <span class="mechanism-detail">Token</span>
+                        </div>
+
+                        <div class="mechanism-row">
+                            <span class="mechanism-number">02</span>
+                            <span class="mechanism-name">Launch</span>
+                            <span class="mechanism-detail">Bonding curve</span>
+                        </div>
+
+                        <div class="mechanism-row">
+                            <span class="mechanism-number">03</span>
+                            <span class="mechanism-name">Compete</span>
+                            <span class="mechanism-detail">Attention</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 02 ATTENTION -->
+        <section class="section" id="market">
+
+            <div class="inner section-grid">
+
+                <div class="section-number">
+                    02
+                </div>
+
+                <div class="section-content reveal">
+
+                    <div class="eyebrow">
+                        THE ATTENTION MARKET
+                    </div>
+
+                    <h2 class="section-title">
+                        Get noticed.
+                    </h2>
+
+                    <p class="section-description">
+                        Every launch competes for attention.
+                        The market decides what rises, what falls,
+                        and what earns liquidity.
+                    </p>
+
+
+                    <!-- DEMO MARKET -->
+                    <div class="market">
+
+                        <div class="market-header">
+                            <span>Live launches</span>
+                            <span>Attention</span>
+                        </div>
+
+                        <div class="market-item">
+                            <span class="rank">01</span>
+                            <span class="token">$ALPHA</span>
+                            <div class="attention-bar">
+                                <span style="width: 92%;"></span>
+                            </div>
+                            <span class="market-status">RISING</span>
+                        </div>
+
+                        <div class="market-item">
+                            <span class="rank">02</span>
+                            <span class="token">$NOVA</span>
+                            <div class="attention-bar">
+                                <span style="width: 74%;"></span>
+                            </div>
+                            <span class="market-status">ACTIVE</span>
+                        </div>
+
+                        <div class="market-item">
+                            <span class="rank">03</span>
+                            <span class="token">$VOID</span>
+                            <div class="attention-bar">
+                                <span style="width: 51%;"></span>
+                            </div>
+                            <span class="market-status">ACTIVE</span>
+                        </div>
+
+                        <div class="market-item">
+                            <span class="rank">04</span>
+                            <span class="token">$ARCX</span>
+                            <div class="attention-bar">
+                                <span style="width: 29%;"></span>
+                            </div>
+                            <span class="market-status">EARLY</span>
+                        </div>
+
+                    </div>
+
+                    <p class="eyebrow" style="margin-top:15px;">
+                        DEMONSTRATION DATA
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 TRADE -->
+        <section class="section">
+
+            <div class="inner section-grid">
+
+                <div class="section-number">
+                    03
+                </div>
+
+                <div class="section-content reveal">
+
+                    <div class="eyebrow">
+                        THE MARKET
+                    </div>
+
+                    <h2 class="section-title">
+                        Trade.
+                    </h2>
+
+                    <p class="section-description">
+                        Attention becomes price. Buy into emerging
+                        launches and sell as the market changes.
+                        One launchpad. One market.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 04 GRADUATE -->
+        <section class="section" id="graduate">
+
+            <div class="inner section-grid">
+
+                <div class="section-number">
+                    04
+                </div>
+
+                <div class="section-content reveal">
+
+                    <div class="eyebrow">
+                        THE END OF THE CURVE
+                    </div>
+
+                    <h2 class="section-title">
+                        Graduate.
+                    </h2>
+
+                    <p class="section-description">
+                        When a launch reaches its graduation threshold,
+                        liquidity moves into a Uniswap v4 pool.
+                    </p>
+
+                    <div class="graduation">
+
+                        <div class="grad-step">
+                            <span class="grad-number">01</span>
+                            <span class="grad-name">Launch</span>
+                        </div>
+
+                        <div class="grad-step">
+                            <span class="grad-number">02</span>
+                            <span class="grad-name">Attention</span>
+                        </div>
+
+                        <div class="grad-step">
+                            <span class="grad-number">03</span>
+                            <span class="grad-name">Threshold</span>
+                        </div>
+
+                        <div class="grad-step">
+                            <span class="grad-number">04</span>
+                            <span class="grad-name">Uniswap v4</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FUTURE -->
+        <section class="future">
+
+            <div class="inner">
+
+                <div class="eyebrow reveal">
+                    WHAT COMES NEXT
+                </div>
+
+                <h2 class="future-title reveal">
+                    THE LAUNCHPAD
+                    BECOMES SOCIAL.
+                </h2>
+
+                <p class="future-description reveal">
+                    Ballista starts as an attention market for Arc.
+                    As the market grows, the interface evolves into
+                    a social layer built around launching, discovering
+                    and trading tokens.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="inner footer-inner">
+
+            <div class="footer-brand">
+                BALLISTA
+            </div>
+
+            <div class="eyebrow">
+                ARC · USDC · UNISWAP V4
+            </div>
+
+            <div class="footer-links">
+                <a href="#launch">Launch</a>
+                <a href="#market">Attention</a>
+                <a href="#graduate">Graduate</a>
+                <a href="https://x.com/YOUR_X_HANDLE" target="_blank" rel="noopener">
+                    X ↗
+                </a>
+            </div>
+
         </div>
 
-    </div>
+    </footer>
 
-    <script>
-        const targetDate = new Date("September 16, 2026 23:00:00").getTime();
-        const timerElement = document.getElementById('timer');
+</div>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
 
-            if (distance < 0) { timerElement.textContent = "00:00:00:00"; return; }
+<script>
+    /* --------------------------------------------------
+       COUNTDOWN
+       September 16, 2026 at 23:00 local time
+    -------------------------------------------------- */
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const targetDate =
+        new Date("September 16, 2026 23:00:00").getTime();
 
-            timerElement.textContent = 
-                `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    const timerElement =
+        document.getElementById("timer");
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+            timerElement.textContent = "00:00:00:00";
+            return;
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
+        const days =
+            Math.floor(distance / (1000 * 60 * 60 * 24));
+
+        const hours =
+            Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+        const minutes =
+            Math.floor(
+                (distance % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+        const seconds =
+            Math.floor(
+                (distance % (1000 * 60)) /
+                1000
+            );
+
+        timerElement.textContent =
+            `${String(days).padStart(2, "0")}:` +
+            `${String(hours).padStart(2, "0")}:` +
+            `${String(minutes).padStart(2, "0")}:` +
+            `${String(seconds).padStart(2, "0")}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+
+    /* --------------------------------------------------
+       NAV BORDER
+    -------------------------------------------------- */
+
+    const nav = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            nav.classList.add("scrolled");
+        } else {
+            nav.classList.remove("scrolled");
+        }
+    });
+
+
+    /* --------------------------------------------------
+       REVEAL ANIMATIONS
+    -------------------------------------------------- */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealElements.forEach((element) => {
+        observer.observe(element);
+    });
+</script>
 
 </body>
 </html>
